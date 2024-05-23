@@ -1,3 +1,3 @@
 # Services
 
-    https://services.validatorvn.com/airchains
+    https://services.Chiricato.com/airchains

@@ -41,7 +41,7 @@ make install
 ## **Node configuration**
 
 ```
-dymd init ValidatorVN --chain-id=dymension_1100-1
+dymd init Chiricato --chain-id=dymension_1100-1
 
 curl -Ls https://ss.dymension.nodestake.org/genesis.json > $HOME/.dymension/config/genesis.json 
 curl -Ls https://ss.dymension.nodestake.org/addrbook.json > $HOME/.dymension/config/addrbook.json

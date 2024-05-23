@@ -1,25 +1,13 @@
 #!/bin/bash
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 read -r -p "Enter node moniker: " NODE_MONIKER
 
 CHAIN_ID="artela_11822-1"
 CHAIN_DENOM="artela"
 BINARY_NAME="artelad"
-GITHUB="https://github.com/NodeValidatorVN"
+GITHUB="https://github.com/Chiricato"
 BINARY_VERSION_TAG="v0.4.7-rc4"
 
 echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"
@@ -58,8 +46,8 @@ make install
 artelad config chain-id $CHAIN_ID
 artelad init "$NODE_MONIKER" --chain-id $CHAIN_ID
 
-wget -O $HOME/.artelad/config/genesis.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Artela/genesis.json"
-wget -O $HOME/.artelad/config/addrbook.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Artela/addrbook.json"
+wget -O $HOME/.artelad/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Artela/genesis.json"
+wget -O $HOME/.artelad/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Artela/addrbook.json"
 
 SEEDS=""
 PEERS="b23bc610c374fd071c20ce4a2349bf91b8fbd7db@65.108.72.233:11656"

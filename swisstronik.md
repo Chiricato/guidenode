@@ -81,9 +81,9 @@ You're all set to start running SGX programs!
 ## Public Endpoints:
 
 ```
-RPC: https://swiss-rpc.validatorvn.com
-API: https://swiss-api.validatorvn.com
-gRPC: swiss-grpc.validatorvn.com
+RPC: https://swiss-rpc.Chiricato.com
+API: https://swiss-api.Chiricato.com
+gRPC: swiss-grpc.Chiricato.com
 ```
 
 ## **Building from source**
@@ -120,8 +120,8 @@ cp /usr/lib/enclave.signed.so /root/.swisstronik-enclave/enclave.signed.so
 swisstronikd enclave request-master-key rpc.testnet.swisstronik.com:46789
 swisstronikd init YOUR_MONIKER --chain-id swisstronik_1291-1
 
-wget -O $HOME/.swisstronik/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Swisstronik/genesis.json"
-wget -O $HOME/.swisstronik/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Swisstronik/addrbook.json"
+wget -O $HOME/.swisstronik/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Swisstronik/genesis.json"
+wget -O $HOME/.swisstronik/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Swisstronik/addrbook.json"
 
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"7uswtr\"/;" ~/.swisstronik/config/app.toml
 sed -i 's/max_num_inbound_peers =.*/max_num_inbound_peers = 50/g' $HOME/.swisstronik/config/config.toml

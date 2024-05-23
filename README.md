@@ -20,27 +20,27 @@ layout:
     visible: true
 ---
 
-# 💈 ValidatorVN
+# 💈 Chiricato
 
 Support the growth of Web3 and the Proof-of-Stake ecosystem with our non-custodial staking service.
 
-**Please note that below is the official list of information about ValidatorVN:**&#x20;
+**Please note that below is the official list of information about Chiricato:**&#x20;
 
-Services: [https://services.validatorvn.com](https://services.validatorvn.com)
+Services: [https://services.Chiricato.com](https://services.Chiricato.com)
 
-Website: [http://validatorvn.com](https://t.co/GK8AKV7GCe)&#x20;
+Website: [http://Chiricato.com](https://t.co/GK8AKV7GCe)&#x20;
 
-Telegram: [http://t.me/ValidatorVN](https://t.co/4xF0gB7mvX)&#x20;
+Telegram: [http://t.me/Chiricato](https://t.co/4xF0gB7mvX)&#x20;
 
-Discord handle: validatorvn
+Discord handle: Chiricato
 
-Github: [https://github.com/ValidatorVN](https://github.com/ValidatorVN)\
-Explorer: [https://explorer.validatorvn.com](https://explorer.validatorvn.com/)\
-Youtube: [www.youtube.com/@validatorvn](http://www.youtube.com/@validatorvn)
+Github: [https://github.com/Chiricato](https://github.com/Chiricato)\
+Explorer: [https://explorer.Chiricato.com](https://explorer.Chiricato.com/)\
+Youtube: [www.youtube.com/@Chiricato](http://www.youtube.com/@Chiricato)
 
-X: [https://twitter.com/ValidatorVN](https://twitter.com/ValidatorVN)
+X: [https://twitter.com/Chiricato](https://twitter.com/Chiricato)
 
-Passport: [http://passport.aura.network/p/validatorvn](https://t.co/JVN7z4bqHd)&#x20;
+Passport: [http://passport.aura.network/p/Chiricato](https://t.co/JVN7z4bqHd)&#x20;
 
 Moderator of [@bool\_official](https://twitter.com/bool\_official), [@Autonity](https://twitter.com/autonity\_) \
 Ambassador: [@MANTRA\_Chain](https://twitter.com/MANTRA\_Chain)\

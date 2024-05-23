@@ -11,12 +11,12 @@ description: >-
 
 ## Public Endpoints
 
-[https://pryzm-rpc.validatorvn.com/](https://pryzm-rpc.validatorvn.com/)\
-[https://pryzm-api.validatorvn.com/](https://pryzm-api.validatorvn.com/)
+[https://pryzm-rpc.Chiricato.com/](https://pryzm-rpc.Chiricato.com/)\
+[https://pryzm-api.Chiricato.com/](https://pryzm-api.Chiricato.com/)
 
 ## Explorer
 
-[https://explorer.validatorvn.com/Pryzm-Testnet](https://explorer.validatorvn.com/Pryzm-Testnet)
+[https://explorer.Chiricato.com/Pryzm-Testnet](https://explorer.Chiricato.com/Pryzm-Testnet)
 
 ## Snapshots
 
@@ -25,7 +25,7 @@ sudo systemctl stop pryzmd
 cp $HOME/.pryzm/data/priv_validator_state.json $HOME/.pryzm/priv_validator_state.json.backup
 rm -rf $HOME/.pryzm/data
 pryzmd tendermint unsafe-reset-all --home ~/.pryzm/ --keep-addr-book
-curl https://snapshot.validatorvn.com/pryzm/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.pryzm
+curl https://snapshot.Chiricato.com/pryzm/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.pryzm
 mv $HOME/.pryzm/priv_validator_state.json.backup $HOME/.pryzm/data/priv_validator_state.json
 sudo systemctl restart pryzmd && sudo journalctl -u pryzmd -f -o cat
 ```
@@ -35,7 +35,7 @@ sudo systemctl restart pryzmd && sudo journalctl -u pryzmd -f -o cat
 ```
 pryzmdsudo systemctl stop pryzmd
 
-SNAP_RPC="https://pryzm-rpc.validatorvn.com:443"
+SNAP_RPC="https://pryzm-rpc.Chiricato.com:443"
 
 cp $HOME/.pryzm/data/priv_validator_state.json $HOME/.pryzm/priv_validator_state.json.backup
 pryzmd tendermint unsafe-reset-all --home ~/.pryzm/ --keep-addr-book
@@ -61,8 +61,8 @@ sudo systemctl restart pryzmd && journalctl -u pryzmd -f -o cat
 ## Genesis & Addrbook
 
 ```
-curl -L https://snapshot.validatorvn.com/pryzm/addrbook.json > $HOME/.pryzm/config/addrbook.json
-curl -L https://snapshot.validatorvn.com/pryzm/genesis.json > $HOME/.pryzm/config/genesis.json
+curl -L https://snapshot.Chiricato.com/pryzm/addrbook.json > $HOME/.pryzm/config/addrbook.json
+curl -L https://snapshot.Chiricato.com/pryzm/genesis.json > $HOME/.pryzm/config/genesis.json
 ```
 
 

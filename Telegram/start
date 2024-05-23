@@ -3,19 +3,7 @@
 while true
 do
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 
 PS3='Select an action: '
@@ -41,7 +29,7 @@ echo export TG_ID=${TG_ID} >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
 mkdir -p $HOME/alerts
-wget -O $HOME/alerts/alerts.sh https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Telegram/alerts.sh
+wget -O $HOME/alerts/alerts.sh https://raw.githubusercontent.com/Chiricato/GuideNode/main/Telegram/alerts.sh
 chmod +x $HOME/alerts/alerts.sh
 break
 ;;

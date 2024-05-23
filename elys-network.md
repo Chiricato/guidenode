@@ -16,9 +16,9 @@ linktr.ee: [https://linktr.ee/elysnetwork](https://linktr.ee/elysnetwork)\
 ## Public Endpoints:
 
 ```
-RPC: https://elys-rpc.validatorvn.com
-API: https://elys-api.validatorvn.com
-gRPC: elys-grpc.validatorvn.com
+RPC: https://elys-rpc.Chiricato.com
+API: https://elys-api.Chiricato.com
+gRPC: elys-grpc.Chiricato.com
 ```
 
 ## **Building from source**
@@ -51,8 +51,8 @@ make install
 ```
 elysd init Validator --chain-id=elystestnet-1
 
-wget -O $HOME/.elys/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/ElysNetwork/genesis.json"
-wget -O $HOME/.elys/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/ElysNetwork/addrbook.json"
+wget -O $HOME/.elys/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/ElysNetwork/genesis.json"
+wget -O $HOME/.elys/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/ElysNetwork/addrbook.json"
 
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0018ibc/2180E84E20F5679FCC760D8C165B60F42065DEF7F46A72B447CFF1B7DC6C0A65,0.00025ibc/E2D2F6ADCC68AA3384B2F5DFACCA437923D137C14E86FB8A10207CF3BED0C8D4,0.00025uelys\"/;" ~/.elys/config/app.toml
 sed -i 's/max_num_inbound_peers =.*/max_num_inbound_peers = 50/g' $HOME/.elys/config/config.toml
@@ -108,7 +108,7 @@ sudo systemctl restart elysd && journalctl -u elysd -f -o cat | grep heigh t
 ```
 sudo systemctl stop elysd
 elysd tendermint unsafe-reset-all --home ~/.hedge/ --keep-addr-book
-SNAP_RPC="https://elys-rpc.validatorvn.com:443"
+SNAP_RPC="https://elys-rpc.Chiricato.com:443"
 
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \

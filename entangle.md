@@ -9,25 +9,25 @@ description: Omnichain Made Easy.
 
 ## Public Endpoints
 
-[https://entangle-rpc.validatorvn.com/](https://entangle-rpc.validatorvn.com/)\
-[https://entangle-api.validatorvn.com/](https://entangle-api.validatorvn.com/)
+[https://entangle-rpc.Chiricato.com/](https://entangle-rpc.Chiricato.com/)\
+[https://entangle-api.Chiricato.com/](https://entangle-api.Chiricato.com/)
 
 ## Explorer
 
-[https://explorer.validatorvn.com/Entangle-Mainnet](https://explorer.validatorvn.com/Entangle-Mainnet)
+[https://explorer.Chiricato.com/Entangle-Mainnet](https://explorer.Chiricato.com/Entangle-Mainnet)
 
 ## Genesis & Addrbook
 
 ```
-curl -Ls https://snapshot.validatorvn.com/entangle/genesis.json > $HOME/.entangled/config/genesis.json
-curl -Ls https://snapshot.validatorvn.com/entangle/addrbook.json > $HOME/.entangled/config/addrbook.json
+curl -Ls https://snapshot.Chiricato.com/entangle/genesis.json > $HOME/.entangled/config/genesis.json
+curl -Ls https://snapshot.Chiricato.com/entangle/addrbook.json > $HOME/.entangled/config/addrbook.json
 ```
 
 ## Peers
 
 ```
 # Configure Seeds and Peers
-PEERS="$(curl -sS https://entangle-rpc.validatorvn.com/net_info | jq -r '.result.peers[] | "(.node_info.id)@(.remote_ip):(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}' | sed -z 's|
+PEERS="$(curl -sS https://entangle-rpc.Chiricato.com/net_info | jq -r '.result.peers[] | "(.node_info.id)@(.remote_ip):(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}' | sed -z 's|
 |,|g;s|.$||')"
 sed -i -e "s|^persistent_peers *=.*|persistent_peers = "$PEERS"|" $HOME/.entangled/config/config.toml
 
@@ -40,7 +40,7 @@ sudo systemctl stop entangled
 
 cp $HOME/.entangled/data/priv_validator_state.json $HOME/.entangled/priv_validator_state.json.backup
 entangled tendermint unsafe-reset-all --home ~/.entangled/ --keep-addr-book
-curl https://snapshot.validatorvn.com/entangle/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.entangled
+curl https://snapshot.Chiricato.com/entangle/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.entangled
 mv $HOME/.entangled/priv_validator_state.json.backup $HOME/.entangled/data/priv_validator_state.json
 
 sudo systemctl restart entangled && sudo journalctl -u entangled -f -o cat
@@ -51,7 +51,7 @@ sudo systemctl restart entangled && sudo journalctl -u entangled -f -o cat
 ```
 sudo systemctl stop entangled
 
-SNAP_RPC="https://entangle-rpc.validatorvn.com:443"
+SNAP_RPC="https://entangle-rpc.Chiricato.com:443"
 cp $HOME/.entangled/data/priv_validator_state.json $HOME/.entangled/priv_validator_state.json.backup
 entangled tendermint unsafe-reset-all --home ~/.entangled/ --keep-addr-book
 

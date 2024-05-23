@@ -12,9 +12,9 @@ telegram: [https://t.me/oraichain\_official](https://t.me/oraichain\_official)\
 
 
 Public Endpoints:\
-RPC: https://orai-rpc.validatorvn.com\
-API: https://orai-api.validatorvn.com\
-gRPC: orai-grpc.validatorvn.com\
+RPC: https://orai-rpc.Chiricato.com\
+API: https://orai-api.Chiricato.com\
+gRPC: orai-grpc.Chiricato.com\
 StateSync: Enable
 
 ## **Building from source**
@@ -47,10 +47,10 @@ make install
 ## **Node configuration**
 
 ```
-oraid init ValidatorVN --chain-id Oraichain
+oraid init Chiricato --chain-id Oraichain
 
-wget -O $HOME/.oraid/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Oraichain/genesis.json"
-wget -O $HOME/.oraid/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Oraichain/addrbook.json"
+wget -O $HOME/.oraid/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Oraichain/genesis.json"
+wget -O $HOME/.oraid/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Oraichain/addrbook.json"
 
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0orai\"/;" ~/.oraid/config/app.toml
 peers=""

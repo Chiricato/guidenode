@@ -9,15 +9,15 @@ description: Next-gen Modular L1 Blockchain Infrastructure for Omnichain Applica
 
 ## Public Endpoints
 
-[https://warden-rpc.validatorvn.com/](https://warden-rpc.validatorvn.com/)
+[https://warden-rpc.Chiricato.com/](https://warden-rpc.Chiricato.com/)
 
-[https://warden-api.validatorvn.com/](https://warden-api.validatorvn.com/)
+[https://warden-api.Chiricato.com/](https://warden-api.Chiricato.com/)
 
 Peer Node: 10f75c25cddeb85de9fbea50f7df7440bc29e7a1@116.105.188.164:13657
 
 ## Explorer
 
-[https://explorer.validatorvn.com/Warden-Testnet](https://explorer.validatorvn.com/Warden-Testnet)
+[https://explorer.Chiricato.com/Warden-Testnet](https://explorer.Chiricato.com/Warden-Testnet)
 
 ## Snapshots
 
@@ -27,7 +27,7 @@ sudo systemctl stop wardend
 cp $HOME/.warden/data/priv_validator_state.json $HOME/.warden/priv_validator_state.json.backup
 
 rm -rf $HOME/.warden/data $HOME/.warden/wasmPath
-curl https://snapshot.validatorvn.com/warden/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.warden
+curl https://snapshot.Chiricato.com/warden/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.warden
 
 mv $HOME/.warden/priv_validator_state.json.backup $HOME/.warden/data/priv_validator_state.json
 
@@ -39,7 +39,7 @@ sudo systemctl restart wardend && sudo journalctl -u wardend -f -o cat
 ```
 sudo systemctl stop wardend
 
-SNAP_RPC="https://warden-rpc.validatorvn.com:443"
+SNAP_RPC="https://warden-rpc.Chiricato.com:443"
 cp $HOME/.warden/data/priv_validator_state.json $HOME/.warden/priv_validator_state.json.backup
 wardend tendermint unsafe-reset-all --home ~/.warden/ --keep-addr-book
 
@@ -64,8 +64,8 @@ sudo systemctl restart wardend && journalctl -u wardend -f -o cat
 ## Genesis & Addrbook
 
 ```
-curl -Ls https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/WardenProtocol/genesis.json > $HOME/.warden/config/genesis.json
-curl -Ls https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/WardenProtocol/addrbook.json > $HOME/.warden/config/addrbook.json
+curl -Ls https://raw.githubusercontent.com/Chiricato/GuideNode/main/WardenProtocol/genesis.json > $HOME/.warden/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/Chiricato/GuideNode/main/WardenProtocol/addrbook.json > $HOME/.warden/config/addrbook.json
 ```
 
 

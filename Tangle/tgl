@@ -3,19 +3,7 @@
 while true
 do
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 # Menu
 
@@ -95,7 +83,7 @@ echo '=============== SETUP FINISHED ==================='
 echo -e 'Congratulations:      \e[1m\e[32mSUCCESSFUL NODE INSTALLATION\e[0m'
 echo -e 'To check logs:        \e[1m\e[33msudo journalctl -u tangle -f --no-hostname -o cat\e[0m'
 echo -e "To check status:      \e[1m\e[35msudo systemctl status tangle\e[0m"
-echo -e "Guide node:           \e[1m\e[35mhttps://docs.validatorvn.com\e[0m"
+echo -e "Guide node:           \e[1m\e[35mhttps://docs.Chiricato.com\e[0m"
 
 break
 ;;

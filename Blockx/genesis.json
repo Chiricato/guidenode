@@ -3353,7 +3353,7 @@
               {
                 "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
                 "description": {
-                  "moniker": "Validatorvn.com",
+                  "moniker": "Chiricato.com",
                   "identity": "",
                   "website": "",
                   "security_contact": "",

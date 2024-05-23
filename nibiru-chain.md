@@ -43,8 +43,8 @@ make install
 ```
 nibid init Moniker --chain-id=cataclysm-1
 
-wget -O $HOME/.nibid/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Nibiru/genesis.json"
-wget -O $HOME/.nibid/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Nibiru/addrbook.json"
+wget -O $HOME/.nibid/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Nibiru/genesis.json"
+wget -O $HOME/.nibid/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Nibiru/addrbook.json"
 
 ```
 

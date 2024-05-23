@@ -6,12 +6,12 @@ description: The Modular zk-Rollup framework
 
 ## Public Endpoints
 
-[https://junction-rpc.validatorvn.com/](https://junction-rpc.validatorvn.com/)\
-[https://junction-api.validatorvn.com/](https://junction-api.validatorvn.com/)
+[https://junction-rpc.Chiricato.com/](https://junction-rpc.Chiricato.com/)\
+[https://junction-api.Chiricato.com/](https://junction-api.Chiricato.com/)
 
 ## Explorer
 
-[https://explorer.validatorvn.com/Airchains-Testnet/staking](https://explorer.validatorvn.com/Airchains-Testnet/staking)
+[https://explorer.Chiricato.com/Airchains-Testnet/staking](https://explorer.Chiricato.com/Airchains-Testnet/staking)
 
 ## Snapshot
 
@@ -20,7 +20,7 @@ sudo systemctl stop junctiond
 cp $HOME/.junction/data/priv_validator_state.json $HOME/.junction/priv_validator_state.json.backup
 rm -rf $HOME/.junction/data
 junctiond tendermint unsafe-reset-all --home ~/.junction/ --keep-addr-book
-curl https://snapshot.validatorvn.com/junction/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
+curl https://snapshot.Chiricato.com/junction/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junction
 mv $HOME/.junction/priv_validator_state.json.backup $HOME/.junction/data/priv_validator_state.json
 sudo systemctl restart junctiond && sudo journalctl -u junctiond -f -o cat
 ```
@@ -31,7 +31,7 @@ sudo systemctl restart junctiond && sudo journalctl -u junctiond -f -o cat
 sudo systemctl stop junctiond
 cp $HOME/.junction/data/priv_validator_state.json $HOME/.junction/priv_validator_state.json.backup
 junctiond tendermint unsafe-reset-all --home ~/.junction/ --keep-addr-book
-SNAP_RPC="https://junction-rpc.validatorvn.com:443"
+SNAP_RPC="https://junction-rpc.Chiricato.com:443"
 
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
@@ -63,6 +63,6 @@ sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" $HOME/.junction/config/config.t
 ## Addrbook & Genesis
 
 ```bash
-curl -L https://snapshot.validatorvn.com/junction/addrbook.json > $HOME/.junction/config/addrbook.json
-curl -L https://snapshot.validatorvn.com/junction/genesis.json > $HOME/.junction/config/genesis.json
+curl -L https://snapshot.Chiricato.com/junction/addrbook.json > $HOME/.junction/config/addrbook.json
+curl -L https://snapshot.Chiricato.com/junction/genesis.json > $HOME/.junction/config/genesis.json
 ```

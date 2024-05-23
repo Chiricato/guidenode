@@ -1,25 +1,13 @@
 #!/bin/bash
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 read -r -p "Enter node moniker: " NODE_MONIKER
 
 CHAIN_ID="entrypoint-pubtest-2"
 CHAIN_DENOM="uentry"
 BINARY_NAME="entrypointd"
-GITHUB="https://github.com/NodeValidatorVN"
+GITHUB="https://github.com/Chiricato"
 BINARY_VERSION_TAG="v1.3.0"
 
 echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"
@@ -60,8 +48,8 @@ entrypointd config keyring-backend test
 entrypointd init "$NODE_MONIKER" --chain-id $CHAIN_ID
 
 # Add Genesis File and Addrbook
-wget -O $HOME/.entrypoint/config/genesis.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Entrypoint/genesis.json"
-wget -O $HOME/.entrypoint/config/addrbook.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Entrypoint/addrbook.json"
+wget -O $HOME/.entrypoint/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Entrypoint/genesis.json"
+wget -O $HOME/.entrypoint/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Entrypoint/addrbook.json"
 
 #Configure Seeds and Peers
 peers="81bf2ade773a30eccdfee58a041974461f1838d8@185.107.68.148:26656,d57c7572d58cb3043770f2c0ba412b35035233ad@80.64.208.169:26656"

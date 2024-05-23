@@ -14,8 +14,8 @@ discord: [https://discord.gg/63TDBe9cyg](https://discord.gg/63TDBe9cyg)
 ## Public Endpoints:
 
 ```
-RPC: https://hedge-rpc.validatorvn.com/
-API: https://hedge-api.validatorvn.com/
+RPC: https://hedge-rpc.Chiricato.com/
+API: https://hedge-api.Chiricato.com/
 Peer: bc64e8794465dd46399bf6f49a564098e09b0843@164.92.96.212:26656
 7879005ab63c009743f4d8d220abd05b64cfee3d@54.92.167.150:26656
 70f7dc74d3b6afa12b988d61707229e8e191d9a2@213.246.45.16:55656
@@ -93,8 +93,8 @@ hedged config chain-id berberis-1
 hedged config keyring-backend test
 hedged init "Moniker" --chain-id berberis-1
 
-sudo wget -O $HOME/.hedge/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Hedge/genesis.json"
-sudo wget -O $HOME/.hedge/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Hedge/addrbook.json"
+sudo wget -O $HOME/.hedge/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Hedge/genesis.json"
+sudo wget -O $HOME/.hedge/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Hedge/addrbook.json"
 
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.025uhedge\"/;" ~/.hedge/config/app.toml
 peers=""
@@ -149,7 +149,7 @@ sudo systemctl start hedged && journalctl -u hedged -f -o cat
 ```
 sudo systemctl stop hedged
 hedged tendermint unsafe-reset-all --home ~/.hedge/ --keep-addr-book
-SNAP_RPC="https://hedge-rpc.validatorvn.com:443"
+SNAP_RPC="https://hedge-rpc.Chiricato.com:443"
 
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000)); \

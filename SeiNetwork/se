@@ -1,25 +1,13 @@
 #!/bin/bash
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 read -r -p "Enter node moniker: " NODE_MONIKER
 
 CHAIN_ID="pacific-1"
 CHAIN_DENOM="sei"
 BINARY_NAME="seid"
-GITHUB="https://github.com/NodeValidatorVN"
+GITHUB="https://github.com/Chiricato"
 BINARY_VERSION_TAG="v3.5.0"
 
 echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"

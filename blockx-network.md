@@ -44,10 +44,10 @@ mv blockxd $HOME/go/bin/
 
 ```
 blockxd config chain-id blockx_100-1
-blockxd init "ValidatorVN" --chain-id blockx_100-1
+blockxd init "Chiricato" --chain-id blockx_100-1
 
-wget -O $HOME/.blockxd/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Blockx/genesis.json"
-wget -O $HOME/.blockxd/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Blockx/addrbook.json"
+wget -O $HOME/.blockxd/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Blockx/genesis.json"
+wget -O $HOME/.blockxd/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Blockx/addrbook.json"
 
 SEEDS="479dfa1948f49b08810cd16bf6c2d3256ae85423@137.184.7.64:26656,e15f4d31281036c69fa17269d9b26ff8733511c6@147.182.238.235:26656,9b84b33d44a880a520006ae9f75ef030b259cbaf@137.184.38.212:26656,85d0069266e78896f9d9e17915cdfd271ba91dfd@146.190.153.165:26656"
 PEERS=""

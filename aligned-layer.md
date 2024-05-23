@@ -11,12 +11,12 @@ description: >-
 
 ## Public Endpoints
 
-[https://aligned-rpc.validatorvn.com/](https://aligned-rpc.validatorvn.com/)\
-[https://aligned-api.validatorvn.com/](https://aligned-api.validatorvn.com/)
+[https://aligned-rpc.Chiricato.com/](https://aligned-rpc.Chiricato.com/)\
+[https://aligned-api.Chiricato.com/](https://aligned-api.Chiricato.com/)
 
 ## Explorer
 
-[https://explorer.validatorvn.com/AlignedLayer-Testnet](https://explorer.validatorvn.com/AlignedLayer-Testnet)
+[https://explorer.Chiricato.com/AlignedLayer-Testnet](https://explorer.Chiricato.com/AlignedLayer-Testnet)
 
 ## Snapshots
 
@@ -25,7 +25,7 @@ sudo systemctl stop alignedlayerd
 cp $HOME/.alignedlayer/data/priv_validator_state.json $HOME/.alignedlayer/priv_validator_state.json.backup
 rm -rf $HOME/.alignedlayer/data
 alignedlayerd tendermint unsafe-reset-all --home ~/.alignedlayer/ --keep-addr-book
-curl https://snapshot.validatorvn.com/aligned/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.alignedlayer
+curl https://snapshot.Chiricato.com/aligned/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.alignedlayer
 mv $HOME/.alignedlayer/priv_validator_state.json.backup $HOME/.alignedlayer/data/priv_validator_state.json
 sudo systemctl restart alignedlayerd && sudo journalctl -u alignedlayerd -f -o cat
 
@@ -36,7 +36,7 @@ sudo systemctl restart alignedlayerd && sudo journalctl -u alignedlayerd -f -o c
 ```
 sudo systemctl stop alignedlayerd
 
-SNAP_RPC="https://aligned-rpc.validatorvn.com:443"
+SNAP_RPC="https://aligned-rpc.Chiricato.com:443"
 
 cp $HOME/.alignedlayer/data/priv_validator_state.json $HOME/.alignedlayer/priv_validator_state.json.backup
 alignedlayerd tendermint unsafe-reset-all --home ~/.alignedlayer/ --keep-addr-book
@@ -63,7 +63,7 @@ sudo systemctl restart alignedlayerd && journalctl -u alignedlayerd -f -o cat
 ## Genesis & Addrbook
 
 ```
-curl -Ls https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/AlignedLayer/genesis.json > $HOME/.alignedlayer/config/genesis.json
-curl -Ls https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/AlignedLayer/addrbook.json > $HOME/.alignedlayer/config/addrbook.json
+curl -Ls https://raw.githubusercontent.com/Chiricato/GuideNode/main/AlignedLayer/genesis.json > $HOME/.alignedlayer/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/Chiricato/GuideNode/main/AlignedLayer/addrbook.json > $HOME/.alignedlayer/config/addrbook.json
 ```
 

@@ -1,25 +1,13 @@
 #!/bin/bash
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 read -r -p "Enter node moniker: " NODE_MONIKER
 
 CHAIN_ID="self-dev-1"
 CHAIN_DENOM="self"
 BINARY_NAME="selfchaind"
-GITHUB="https://github.com/NodeValidatorVN"
+GITHUB="https://github.com/Chiricato"
 BINARY_VERSION_TAG="devnet"
 
 echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"
@@ -59,8 +47,8 @@ selfchaind version
 selfchaind config chain-id $CHAIN_ID
 selfchaind init "$NODE_MONIKER" --chain-id $CHAIN_ID
 
-wget -O $HOME/.selfchain/config/genesis.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Selfchain/genesis.json"
-wget -O $HOME/.selfchain/config/addrbook.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Selfchain/addrbook.json"
+wget -O $HOME/.selfchain/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Selfchain/genesis.json"
+wget -O $HOME/.selfchain/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/Selfchain/addrbook.json"
 
 SEEDS="6dffc4d6f3a59da646807034f2bd04124971805b@rpc-t.selfchain.nodestake.org:666"
 PEERS="2425d2ba5f493a10d4decd0fb42ef47dc13efec2@206.189.206.88:26656,d6585951e41b0eddb0d7721f3927b195688b95a4@5.78.66.239:26656,35f478c534e2d58dc2c4acdf3eb22eeb6f23357f@165.232.125.66:26656,20acbc925fd59afa2dee3c1c7e4e691f470d4ecc@194.163.176.105:34656,34d1145cdacad0548fa62e034b02a00c3884d2f5@194.163.165.176:33656,f282af2ba286abb9d4aab611a8f39176c26d6928@213.239.207.175:61656,543b57e573d3df58072a375ae31fe54904ec9320@95.217.107.96:26656,ca4b6131d616d4d5930e50f1f557950f17fe4091@188.166.218.244:26656,0df9b2a46b836020516fb53c53c042f820eab1cb@65.108.229.93:38656,e8502eb858f555051f3f80edc13f46ea942e7507@23.111.23.233:26656,d3b5b6ca39c8c62152abbeac4669816166d96831@165.22.24.236:26656,09232328cb361431993f77c5e3a220d93b5ed6dd@46.166.170.57:26656"

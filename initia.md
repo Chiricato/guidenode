@@ -12,7 +12,7 @@ description: >-
 ## Install Initia Node
 
 ```
-wget https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/Initia/ini && chmod +x ini && ./ini
+wget https://raw.githubusercontent.com/Chiricato/GuideNode/main/Initia/ini && chmod +x ini && ./ini
 ```
 
 ```
@@ -25,7 +25,7 @@ https://youtu.be/ZnTA2sPzSnc
 sudo systemctl stop initiad.service
 cp $HOME/.initia/data/priv_validator_state.json $HOME/.initia/priv_validator_state.json.backup
 rm -rf $HOME/.initia/data
-curl https://snapshot.validatorvn.com/initia/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.initia
+curl https://snapshot.Chiricato.com/initia/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.initia
 mv $HOME/.initia/priv_validator_state.json.backup $HOME/.initia/data/priv_validator_state.json
 sudo systemctl start initiad.service && sudo journalctl -u initiad.service -f --no-hostname -o cat
 
@@ -61,8 +61,8 @@ sudo systemctl restart initiad && journalctl -u initiad -f -o cat
 ## Genesis & Addrbook
 
 ```
-curl -L https://snapshot.validatorvn.com/initia/addrbook.json > $HOME/.initia/config/addrbook.json
-curl -L https://snapshot.validatorvn.com/initia/genesis.json > $HOME/.initia/config/genesis.json
+curl -L https://snapshot.Chiricato.com/initia/addrbook.json > $HOME/.initia/config/addrbook.json
+curl -L https://snapshot.Chiricato.com/initia/genesis.json > $HOME/.initia/config/genesis.json
 ```
 
 ## Seeds & Peers

@@ -25,12 +25,12 @@ layout:
 
 ## Public Endpoints
 
-[https://galactica-rpc.validatorvn.com](https://galactica-rpc.validatorvn.com/)\
-[https://galactica-api.validatorvn.com](https://galactica-api.validatorvn.com)
+[https://galactica-rpc.Chiricato.com](https://galactica-rpc.Chiricato.com/)\
+[https://galactica-api.Chiricato.com](https://galactica-api.Chiricato.com)
 
 ## Explorer
 
-[https://explorer.validatorvn.com/Galactica-Testnet](https://explorer.validatorvn.com/Galactica-Testnet)
+[https://explorer.Chiricato.com/Galactica-Testnet](https://explorer.Chiricato.com/Galactica-Testnet)
 
 ## Snapshots
 
@@ -40,7 +40,7 @@ sudo systemctl stop galacticad
 cp $HOME/.galactica/data/priv_validator_state.json $HOME/.galactica/priv_validator_state.json.backup
 rm -rf $HOME/.galactica/data
 galacticad tendermint unsafe-reset-all --home ~/.galactica/ --keep-addr-book
-curl https://snapshot.validatorvn.com/galactica/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.galactica
+curl https://snapshot.Chiricato.com/galactica/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.galactica
 mv $HOME/.galactica/priv_validator_state.json.backup $HOME/.galactica/data/priv_validator_state.json
 sudo systemctl restart galacticad && sudo journalctl -u galacticad -f -o cat
 ```
@@ -50,7 +50,7 @@ sudo systemctl restart galacticad && sudo journalctl -u galacticad -f -o cat
 ```
 sudo systemctl stop galacticad
 
-SNAP_RPC="https://galactica-rpc.validatorvn.com:443"
+SNAP_RPC="https://galactica-rpc.Chiricato.com:443"
 
 cp $HOME/.galactica/data/priv_validator_state.json $HOME/.galactica/priv_validator_state.json.backup
 galacticad tendermint unsafe-reset-all --home ~/.galactica/ --keep-addr-book
@@ -76,14 +76,14 @@ sudo systemctl restart galacticad && journalctl -u galacticad -f -o cat
 ## Genesis & Addrbook
 
 ```
-wget -O $HOME/.galactica/config/genesis.json https://snapshot.validatorvn.com/galactica/genesis.json
-wget -O $HOME/.galactica/config/addrbook.json https://snapshot.validatorvn.com/galactica/addrbook.json
+wget -O $HOME/.galactica/config/genesis.json https://snapshot.Chiricato.com/galactica/genesis.json
+wget -O $HOME/.galactica/config/addrbook.json https://snapshot.Chiricato.com/galactica/addrbook.json
 ```
 
 ## Live Peers
 
 ```
-PEERS=$(curl -sS https://galactica-rpc.validatorvn.com/net_info | \
+PEERS=$(curl -sS https://galactica-rpc.Chiricato.com/net_info | \
 jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | \
 awk -F ':' '{printf "%s:%s%s", $1, $(NF), NR==NF?"":","}')
 echo "$PEERS"

@@ -41,8 +41,8 @@ buckets = 10
 [[chains]]
 id = "shielded-expedition.88f17d1d14"
 type = "Namada"
-rpc_addr = "https://namada-rpc.validatorvn.com"
-grpc_addr = "https://namada-grpc.validatorvn.com"
+rpc_addr = "https://namada-rpc.Chiricato.com"
+grpc_addr = "https://namada-grpc.Chiricato.com"
 key_name = "relayer"
 store_prefix = "ibc"
 account_prefix = "tnam"
@@ -54,7 +54,7 @@ rpc_timeout = '60s'
 
 [chains.event_source]
 mode = "push"
-url = "wss://namada-rpc.validatorvn.com/websocket"
+url = "wss://namada-rpc.Chiricato.com/websocket"
 batch_delay = "500ms"
 
 [chains.gas_price]

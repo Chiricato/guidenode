@@ -1,25 +1,13 @@
 #!/bin/bash
 
-# Logo
 
-echo -e "\033[0;34m"
-echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
-echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
-echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
-echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
-echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
-echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
-echo "Gitbook: https://docs.validatorvn.com"
-echo "Chanel: https://t.me/ValidatorVN"
-echo "Github: https://github.com/NodeValidatorVN"
-echo -e "\e[0m"
 
 read -r -p "Enter node moniker: " NODE_MONIKER
 
 CHAIN_ID="elystestnet-1"
 CHAIN_DENOM="elys"
 BINARY_NAME="elysd"
-GITHUB="https://github.com/NodeValidatorVN"
+GITHUB="https://github.com/Chiricato"
 BINARY_VERSION_TAG="v0.26.0"
 
 echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"
@@ -60,8 +48,8 @@ source $HOME/.bash_profile
 elysd config chain-id $CHAIN_ID
 elysd init "$NODE_MONIKER" --chain-id $CHAIN_ID
 
-wget -O $HOME/.elys/config/genesis.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/ElysNetwork/genesis.json"
-wget -O $HOME/.elys/config/addrbook.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/ElysNetwork/addrbook.json"
+wget -O $HOME/.elys/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/ElysNetwork/genesis.json"
+wget -O $HOME/.elys/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/ElysNetwork/addrbook.json"
 
 SEEDS=""
 PEERS="86987eeff225699e67a6543de3622b8a986cce28@91.183.62.162:26656,61284a4d71cd3a33771640b42f40b2afda389a1e@78.110.161.69:26656,ae22b82b1dc34fa0b1a64854168692310f562136@147.135.104.10:26656,cdf9ae8529aa00e6e6703b28f3dcfdd37e07b27c@147.135.9.107:26656"

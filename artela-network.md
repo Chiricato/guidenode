@@ -11,12 +11,12 @@ description: >-
 
 ## Public Endpoints
 
-[https://artela-rpc.validatorvn.com/](https://artela-rpc.validatorvn.com/)\
-[https://artela-api.validatorvn.com/](https://artela-api.validatorvn.com/)
+[https://artela-rpc.Chiricato.com/](https://artela-rpc.Chiricato.com/)\
+[https://artela-api.Chiricato.com/](https://artela-api.Chiricato.com/)
 
 ## Explorer
 
-[https://explorer.validatorvn.com/Artela-Testnet](https://explorer.validatorvn.com/Artela-Testnet)
+[https://explorer.Chiricato.com/Artela-Testnet](https://explorer.Chiricato.com/Artela-Testnet)
 
 ## Snapshots
 
@@ -25,7 +25,7 @@ sudo systemctl stop artelad
 cp $HOME/.artelad/data/priv_validator_state.json $HOME/.artelad/priv_validator_state.json.backup
 rm -rf $HOME/.artelad/data
 artelad tendermint unsafe-reset-all --home ~/.artelad/ --keep-addr-book
-curl https://snapshot.validatorvn.com/artela/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.artelad
+curl https://snapshot.Chiricato.com/artela/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.artelad
 mv $HOME/.artelad/priv_validator_state.json.backup $HOME/.artelad/data/priv_validator_state.json
 sudo systemctl restart artelad && sudo journalctl -u artelad -f -o cat
 
@@ -36,7 +36,7 @@ sudo systemctl restart artelad && sudo journalctl -u artelad -f -o cat
 ```
 sudo systemctl stop artelad
 
-SNAP_RPC="https://artela-rpc.validatorvn.com:443"
+SNAP_RPC="https://artela-rpc.Chiricato.com:443"
 
 cp $HOME/.artelad/data/priv_validator_state.json $HOME/.artelad/priv_validator_state.json.backup
 artelad tendermint unsafe-reset-all --home ~/.artelad/ --keep-addr-book
@@ -63,14 +63,14 @@ sudo systemctl restart artelad && journalctl -u artelad -f -o cat
 ## Genesis & Addrbook
 
 ```
-curl -L https://snapshot.validatorvn.com/artela/addrbook.json > $HOME/.artelad/config/addrbook.json
-curl -L https://snapshot.validatorvn.com/artela/genesis.json > $HOME/.artelad/config/genesis.json
+curl -L https://snapshot.Chiricato.com/artela/addrbook.json > $HOME/.artelad/config/addrbook.json
+curl -L https://snapshot.Chiricato.com/artela/genesis.json > $HOME/.artelad/config/genesis.json
 ```
 
 ## Live Peers
 
 ```
-PEERS=$(curl -sS https://artela-rpc.validatorvn.com/net_info | \
+PEERS=$(curl -sS https://artela-rpc.Chiricato.com/net_info | \
 jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | \
 awk -F ':' '{printf "%s:%s%s", $1, $(NF), NR==NF?"":","}')
 echo "$PEERS"

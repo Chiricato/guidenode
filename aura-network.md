@@ -41,9 +41,9 @@ git checkout v0.7.3
 ```
 aurad config chain-id xstaxy-1
 aurad config keyring-backend file
-aurad init "ValidatorVN" --chain-id xstaxy-1
-wget -O $HOME/.aura/config/genesis.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/AuraNetwork/genesis.json"
-wget -O $HOME/.aura/config/addrbook.json "https://raw.githubusercontent.com/ValidatorVN/GuideNode/main/AuraNetwork/addrbook.json"
+aurad init "Chiricato" --chain-id xstaxy-1
+wget -O $HOME/.aura/config/genesis.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/AuraNetwork/genesis.json"
+wget -O $HOME/.aura/config/addrbook.json "https://raw.githubusercontent.com/Chiricato/GuideNode/main/AuraNetwork/addrbook.json"
 
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.025uaura\"/;" ~/.aura/config/app.toml
 external_address=$(wget -qO- eth0.me)
