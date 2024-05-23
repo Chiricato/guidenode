@@ -1,0 +1,106 @@
+#!/bin/bash
+
+# Logo
+
+echo -e "\033[0;34m"
+echo "███╗   ██╗ ██████╗ ██████╗ ███████╗   ██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗ "
+echo "████╗  ██║██╔═══██╗██╔══██╗██╔════╝   ██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗"
+echo "██╔██╗ ██║██║   ██║██║  ██║█████╗     ██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝"
+echo "██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗"
+echo "██║ ╚████║╚██████╔╝██████╔╝███████╗   ╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║"
+echo "╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝"
+echo "Gitbook: https://docs.validatorvn.com"
+echo "Chanel: https://t.me/ValidatorVN"
+echo "Github: https://github.com/NodeValidatorVN"
+echo -e "\e[0m"
+
+read -r -p "Enter node moniker: " NODE_MONIKER
+
+CHAIN_ID="bbn-test-2"
+CHAIN_DENOM="ubbn"
+BINARY_NAME="babylond"
+GITHUB="https://github.com/NodeValidatorVN"
+BINARY_VERSION_TAG="v0.7.2"
+
+echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"
+echo -e "Chain id:     ${CYAN}$CHAIN_ID${NC}"
+echo -e "Chain demon:  ${CYAN}$CHAIN_DENOM${NC}"
+echo -e "Binary version tag:  ${CYAN}$BINARY_VERSION_TAG${NC}"
+
+sleep 1
+
+echo -e "\e[1m\e[32m1. Updating packages and dependencies--> \e[0m" && sleep 1
+#UPDATE APT
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl tar wget clang pkg-config libssl-dev libleveldb-dev jq build-essential bsdmainutils git make ncdu htop lz4 screen unzip bc fail2ban htop -y
+
+echo -e "\e[1m\e[32m2. Installing GO--> \e[0m" && sleep 1
+#INSTALL GO
+ver="1.20.5" 
+cd $HOME 
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" 
+
+sudo rm -rf /usr/local/go 
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" 
+rm "go$ver.linux-amd64.tar.gz"
+
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+
+echo -e "\e[1m\e[32m3. Downloading and building binaries--> \e[0m" && sleep 1
+
+cd || return
+rm -rf babylon
+git clone https://github.com/babylonchain/babylon
+cd babylon || return
+git checkout v0.7.2
+make install
+babylond version # v0.7.2
+
+babylond config keyring-backend test
+babylond config chain-id bbn-test-2
+babylond init "$NODE_MONIKER" --chain-id bbn-test-2
+
+wget -O $HOME/.babylond/config/genesis.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Babylon/genesis.json"
+wget -O $HOME/.babylond/config/addrbook.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/Babylon/addrbook.json"
+
+SEEDS="8da45f9ff83b4f8dd45bbcb4f850999637fbfe3b@seed0.testnet.babylonchain.io:26656,4b1f8a774220ba1073a4e9f4881de218b8a49c99@seed1.testnet.babylonchain.io:26656"
+PEERS="79872752b7899f9598a43400bc3a9781800113c0@157.90.160.182:31156,6f55a3138d18e8c0eaa66e347794428db698bf2a@148.251.176.236:2000,3287ddbe454cfb5a162799b468c1405b7370c541@95.217.199.12:26601,b6300c3bf3a9fa9492c1c7e970265e9dad8d2929@95.216.244.226:16456,444c24ec5ed261aa910239718e0fe95f05b6ba20@31.220.75.6:16456,554d32e757570b24cba0c883306fd948b4576fe8@161.97.84.178:16456,65426c82d1fe68ab25b165a58c44eeb5db1fad7d@164.68.113.249:16456,9d80974ef078f939d33d9f2f4a62805846a98bc9@161.97.131.16:16456,e2da8ac45ff6782cd34bac4fe33e2776e998357d@86.48.0.80:16456,475cd560ed1b70f91a77359fd13d2b75dd40e0ba@82.208.22.179:16456,a0d3319734621488ea841a3349f44ca331bea2eb@62.171.178.100:16456,7d2ffebe2b55bf1ab6236a08030bbceeb859d1e2@45.8.132.173:16456,10ca9934f1779d4e487b35cca58e25cea91b0d51@194.163.170.114:26656,3118e751541323b0136b8ce6bcae80947d318d27@65.109.92.235:11046,ee0193717c50822c79ab5e4587f859bef5b70f1e@164.68.127.3:16456,23bc62fab2070014fae6abd28ea2292411c2aaa1@89.117.56.177:16456,c1495b52ebde9560ff7182f3b66c70f3868c29f2@161.97.123.215:16456,a7db91c07fa092527f64049f84411f68895af025@38.242.225.232:16456,92d1bd23b1021fac700a7d143a7c2a99a7bd20da@217.76.57.227:16456,164a75d55a55ca3a7b94db4bec684abcb93c944b@158.178.200.224:16456,fb49fb56549229401886fd26154ed9cf03e40bf7@158.220.81.251:16456,a6a9e601039ff8eaa70fe8506195eead25a4f9bf@161.97.110.54:16456,52a51eb04c194f4218baabc93852529c568de89c@65.108.68.86:21756,d5519e378247dfb61dfe90652d1fe3e2b3005a5b@65.109.68.190:16456"
+sed -i 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.babylond/config/config.toml
+
+sed -i 's|^pruning *=.*|pruning = "custom"|g' $HOME/.babylond/config/app.toml
+sed -i 's|^pruning-keep-recent  *=.*|pruning-keep-recent = "100"|g' $HOME/.babylond/config/app.toml
+sed -i 's|^pruning-interval *=.*|pruning-interval = "10"|g' $HOME/.babylond/config/app.toml
+sed -i 's|^snapshot-interval *=.*|snapshot-interval = 0|g' $HOME/.babylond/config/app.toml
+
+sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.00001ubbn"|g' $HOME/.babylond/config/app.toml
+sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.babylond/config/config.toml
+sed -i 's|^network *=.*|network = "mainnet"|g' $HOME/.babylond/config/app.toml
+
+sudo tee /etc/systemd/system/babylond.service > /dev/null << EOF
+[Unit]
+Description=Babylon Node
+After=network-online.target
+[Service]
+User=$USER
+ExecStart=$(which babylond) start --x-crisis-skip-assert-invariants
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=10000
+[Install]
+WantedBy=multi-user.target
+EOF
+
+babylond tendermint unsafe-reset-all --home $HOME/.babylond --keep-addr-book
+
+SNAP_NAME=$(curl -s https://snapshots-testnet.nodejumper.io/babylon-testnet/info.json | jq -r .fileName)
+curl "https://snapshots-testnet.nodejumper.io/babylon-testnet/${SNAP_NAME}" | lz4 -dc - | tar -xf - -C "$HOME/.babylond"
+
+sudo systemctl daemon-reload
+sudo systemctl enable babylond
+sudo systemctl start babylond
+
+echo '=============== SETUP FINISHED ==================='
+echo -e "Check logs:            ${CYAN}sudo journalctl -u $BINARY_NAME -f --no-hostname -o cat ${NC}"
+echo -e "Check synchronization: ${CYAN}$BINARY_NAME status 2>&1 | jq .SyncInfo.catching_up${NC}"
+echo -e "More commands:         ${CYAN}$GITHUB${NC}"

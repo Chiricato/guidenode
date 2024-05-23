@@ -1,0 +1,101 @@
+#!/bin/bash
+
+# Logo
+
+echo -e "\033[0;34m"
+echo "██╗   ██╗ █████╗ ██╗     ██╗ ██████╗  █████╗ ████████╗ ██████╗ ██████╗   ██╗   ██╗███╗   ██╗"
+echo "██║   ██║██╔══██╗██║     ██║ ██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗  ██║   ██║████╗  ██║"
+echo "██║   ██║███████║██║     ██║ ██║  ██║███████║   ██║   ██║   ██║██████╔╝  ██║   ██║██╔██╗ ██║"
+echo "██║   ██║██╔══██║██║     ██║ ██║  ██║██╔══██║   ██║   ██║   ██║██╔══██╗  ██║   ██║██║╚██╗██║"
+echo "╚██████╔╝██║  ██║███████║██║ ██████╔╝██║  ██║   ██║   ╚██████╔╝██║  ██║  ╚██████╔╝██║ ╚████║"
+echo " ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═════╝ ╚═╝  ╚═══╝"
+echo "Services: https://services.validatorvn.com"
+echo "Chanel: https://t.me/ValidatorVN"
+echo "Github: https://github.com/ValidatorVN"
+echo -e "\e[0m"
+
+read -r -p "Enter node name: " NODE_MONIKER
+
+CHAIN_ID="S2-testnet-2"
+CHAIN_DENOM="sided"
+BINARY_NAME="sided"
+GITHUB="https://github.com/ValidatorVN"
+BINARY_VERSION_TAG="v0.8.1"
+
+echo -e "Node moniker: ${CYAN}$NODE_MONIKER${NC}"
+echo -e "Chain id:     ${CYAN}$CHAIN_ID${NC}"
+echo -e "Chain demon:  ${CYAN}$CHAIN_DENOM${NC}"
+echo -e "Binary version tag:  ${CYAN}$BINARY_VERSION_TAG${NC}"
+
+sleep 1
+
+echo -e "\e[1m\e[32m1. Updating packages and dependencies--> \e[0m" && sleep 1
+#UPDATE APT
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl tar wget clang pkg-config libssl-dev libleveldb-dev jq build-essential bsdmainutils git make ncdu htop lz4 screen unzip bc fail2ban htop -y
+
+echo -e "\e[1m\e[32m2. Installing GO--> \e[0m" && sleep 1
+#INSTALL GO
+sudo rm -rf /usr/local/go
+curl -L https://go.dev/dl/go1.21.6.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
+source .bash_profile
+
+echo -e "\e[1m\e[32m3. Downloading and building binaries--> \e[0m" && sleep 1
+
+cd $HOME
+rm -rf side
+git clone https://github.com/sideprotocol/side.git
+cd side
+git checkout v0.8.1
+make install
+
+sided config chain-id $CHAIN_ID
+sided init "$NODE_MONIKER" --chain-id $CHAIN_ID
+
+wget -O $HOME/.side/config/genesis.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/SideProtocol/genesis.json"
+wget -O $HOME/.side/config/addrbook.json "https://raw.githubusercontent.com/NodeValidatorVN/GuideNode/main/SideProtocol/addrbook.json"
+
+SEEDS="9c14080752bdfa33f4624f83cd155e2d3976e303@side-testnet-seed.itrocket.net:45656"
+PEERS="bbbf623474e377664673bde3256fc35a36ba0df1@side-testnet-peer.itrocket.net:45656,3003f4290ea8e3f5674e5d5f687ef8cd4b558036@152.228.208.164:26656,2b2ad344919d591cad2af6fe1b88e51fb02e926b@54.249.68.205:26656,d3a38688a2180658d15f6117b3e6a2771a3e650e@14.245.25.144:45656,541c500114bc5516c677f6a79a5bdfec13062e91@37.27.59.176:17456,aa3533e8c1ba70125fa62477c7fc6b9758976752@14.167.152.116:45656,bf6869c7192e8353765398e826e7934071710d68@81.17.100.237:26656,cb17dadfca6b899af4c807ad56a9c1b1d53c5cf9@134.209.179.45:26656"
+sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.side/config/config.toml
+
+sed -i 's|^pruning *=.*|pruning = "custom"|g' $HOME/.side/config/app.toml
+sed -i 's|^pruning-keep-recent  *=.*|pruning-keep-recent = "100"|g' $HOME/.side/config/app.toml
+sed -i 's|^pruning-interval *=.*|pruning-interval = "10"|g' $HOME/.side/config/app.toml
+sed -i 's|^snapshot-interval *=.*|snapshot-interval = 0|g' $HOME/.side/config/app.toml
+
+sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.005uside"|g' $HOME/.side/config/app.toml
+sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.side/config/config.toml
+sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.side/config/config.toml
+
+echo -e "\e[1m\e[32m4. Starting service and synchronization...--> \e[0m" && sleep 1
+
+sudo tee /etc/systemd/system/sided.service > /dev/null <<EOF
+[Unit]
+Description=Side node
+After=network-online.target
+[Service]
+User=$USER
+WorkingDirectory=$HOME/.side
+ExecStart=$(which sided) start --home $HOME/.side
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable sided
+
+sided tendermint unsafe-reset-all --home ~/.sided/ --keep-addr-book
+
+curl https://snapshot.validatorvn.com/side/data.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.sided
+
+sudo systemctl restart sided
+
+echo '=============== SETUP FINISHED ==================='
+echo -e "Check logs:            ${CYAN}sudo journalctl -u $BINARY_NAME -f --no-hostname -o cat ${NC}"
+echo -e "Check synchronization: ${CYAN}$BINARY_NAME status 2>&1 | jq .SyncInfo.catching_up${NC}"
+echo -e "More commands:         ${CYAN}$GITHUB${NC}"
